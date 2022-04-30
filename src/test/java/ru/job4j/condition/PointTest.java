@@ -16,8 +16,9 @@ public class PointTest {
         Assert.assertEquals(expected, out, 0.01);
     }
 
-    public void when21to48then11dot2801098() {
-        double expected = 7.2801098;
+    @Test
+    public void when21to48then11dot28() {
+        double expected = 7.28;
         int x1 = 2;
         int y1 = 1;
         int x2 = 4;
@@ -26,6 +27,7 @@ public class PointTest {
         Assert.assertEquals(expected, out, 0.01);
     }
 
+    @Test
     public void when32to10then2dot8284271() {
         double expected = 2.8284271;
         int x1 = 3;
@@ -36,6 +38,7 @@ public class PointTest {
         Assert.assertEquals(expected, out, 0.01);
     }
 
+    @Test
     public void when14to17then3() {
         double expected = 3;
         int x1 = 1;
