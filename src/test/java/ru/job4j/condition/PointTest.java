@@ -28,8 +28,8 @@ public class PointTest {
     }
 
     @Test
-    public void when32to10then2dot8284271() {
-        double expected = 2.8284271;
+    public void when32to10then2dot82() {
+        double expected = 2.82;
         int x1 = 3;
         int y1 = 2;
         int x2 = 1;
