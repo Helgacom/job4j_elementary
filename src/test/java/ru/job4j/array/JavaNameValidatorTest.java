@@ -7,8 +7,18 @@ import static ru.job4j.array.JavaNameValidator.*;
 class JavaNameValidatorTest {
 
     @Test
+    void whenEmptyNameInvalid() {
+        assertThat(isNameValid("")).isFalse();
+    }
+
+    @Test
     void whenFullLatValid() {
         assertThat(isNameValid("first")).isTrue();
+    }
+
+    @Test
+    void whenFullLatAndSomeUpperCaseLettersValid() {
+        assertThat(isNameValid("fIRST")).isTrue();
     }
 
     @Test
@@ -17,12 +27,22 @@ class JavaNameValidatorTest {
     }
 
     @Test
-    void whenLatNumberUnderValid() {
+    void whenLatWithSpecialSymbolUnderValid() {
         assertThat(isNameValid("first_user")).isTrue();
     }
 
     @Test
     void whenNumberInValid() {
         assertThat(isNameValid("123")).isFalse();
+    }
+
+    @Test
+    void whenFirstLatinUpperCaseIsInvalid() {
+        assertThat(isNameValid("First")).isFalse();
+    }
+
+    @Test
+    void whenLatNumberAndTwoSpecialSymbolsUnderValid() {
+        assertThat(isNameValid("fir$t_u$er_1")).isTrue();
     }
 }
