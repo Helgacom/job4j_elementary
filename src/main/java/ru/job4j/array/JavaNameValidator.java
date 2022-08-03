@@ -5,23 +5,21 @@ import static java.lang.Character.isUpperCase;
 
 public class JavaNameValidator {
     public static boolean isNameValid(String name) {
-        boolean valid = !name.isEmpty();
-        if (valid) {
+        boolean invalid = name.isEmpty()
+                || isUpperCase(name.codePointAt(0))
+                || isDigit(name.codePointAt(0));
+        if (!invalid) {
             for (int i = 0; i < name.length(); i++) {
                 int code = name.codePointAt(i);
-                if (isUpperCase(name.codePointAt(0)) || isDigit(name.codePointAt(0))) {
-                    valid = false;
-                    break;
-                }
-                if (!isSpecialSymbol(code)
-                        && !isUpperLatinLetter(code)
-                        && !isLowerLatinLetter(code)
-                        && !isDigit(code)) {
-                    valid = false;
+                if (isSpecialSymbol(code)
+                        && isUpperLatinLetter(code)
+                        && isLowerLatinLetter(code)
+                        && isDigit(code)) {
+                    invalid = false;
                 }
             }
         }
-        return valid;
+        return !invalid;
     }
 
     public static boolean isSpecialSymbol(int code) {
