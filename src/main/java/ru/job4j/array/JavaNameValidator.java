@@ -11,11 +11,12 @@ public class JavaNameValidator {
         if (!invalid) {
             for (int i = 0; i < name.length(); i++) {
                 int code = name.codePointAt(i);
-                if (isSpecialSymbol(code)
-                        && isUpperLatinLetter(code)
-                        && isLowerLatinLetter(code)
-                        && isDigit(code)) {
-                    invalid = false;
+                if (!isSpecialSymbol(code)
+                        && !isUpperLatinLetter(code)
+                        && !isLowerLatinLetter(code)
+                        && !isDigit(code)) {
+                    invalid = true;
+                    break;
                 }
             }
         }
